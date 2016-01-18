@@ -127,7 +127,7 @@
       var data = JSON.stringify(response);
       var obj = JSON.parse(data);
       var user = obj.name;
-      window.location="http://zukepage.github.io/index2.html?user="+user;
+      window.location="http://zukepage.github.io/index2.html?"+user;
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
