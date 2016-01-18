@@ -31,7 +31,7 @@
 
 <header>
     
-    <div class="pull-right" style="float:right;"><p style="color:black;margin:10px;">
+    <div class="pull-right" style="float:right;"><span id="userid" style="color:black;"></span><p style="color:black;margin:10px;">
         <button type="button" class="btn btn-default btn-sm" onclick="FB.logout(); Redirect();">
           <span class="glyphicon glyphicon-log-out"></span> Log out
         </button>
@@ -417,7 +417,7 @@ function clearAll2()
   	var a = location.href; 
 	var b = decodeURI(a.substring(a.indexOf("?")+1));
 	checkLoginState();
-	alert (b);
+	document.getElementById("userid").innerHTML=b;
 }
 window.onload = start;
 </script>
