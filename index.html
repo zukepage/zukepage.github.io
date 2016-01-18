@@ -125,7 +125,6 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       var data = JSON.stringify(response);
-      alert (data);
       var obj = JSON.parse(data);
       var user = obj.name;
       window.location="http://zukepage.github.io/index2.html?user="+user;

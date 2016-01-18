@@ -415,7 +415,7 @@ function clearAll2()
 	function start() {
   	
   	var a = location.href; 
-	var b = a.substring(a.indexOf("?")+1);
+	var b = decodeURI(a.substring(a.indexOf("?")+1));
 	checkLoginState();
 	alert (b);
 }
