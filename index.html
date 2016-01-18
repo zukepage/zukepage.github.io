@@ -323,6 +323,7 @@ function clearAll2()
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
+    console.log(JSON.stringify(response));
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -398,7 +399,7 @@ function clearAll2()
     });
   }
 </script>
- 
+
 <script>
   window.fbAsyncInit = function() {
     FB.init({
