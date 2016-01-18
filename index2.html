@@ -342,5 +342,12 @@ function clearAll2()
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+<script type="text/javascript">
+	window.onload = function() {
+  	var a = location.href; 
+	var b = a.substring(a.indexOf("?")+1);
+	alert (b);
+};
+</script>
 </body>
 </html>
