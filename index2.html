@@ -32,7 +32,7 @@
 <header>
     
     <div class="pull-right" style="float:right;"><p style="color:black;margin:10px;">
-        <button type="button" class="btn btn-default btn-sm">
+        <button type="button" class="btn btn-default btn-sm" onclick="FB.logout(); Redirect();">
           <span class="glyphicon glyphicon-log-out"></span> Log out
         </button>
       </p></div>
@@ -317,7 +317,12 @@ function clearAll2()
 
 }
 
-
+ function Redirect() {
+               window.location="http://zukepage.github.io";
+            }
+ FB.logout(function(response) {
+  Redirect();
+});
 
 </script>
 <script>
