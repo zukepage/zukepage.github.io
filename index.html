@@ -38,10 +38,14 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <center><h2>or</h2></center>
-        <a class="btn btn-block btn-social btn-facebook" scope="public_profile,email" onlogin="checkLoginState();">
+        <div class="btn-group">
+          <a class='btn btn-primary disabled' scope="public_profile,email" onclick="checkLoginState();" ><i class="fa fa-facebook" style="width:16px; height:20px"></i></a>
+          <a class='btn btn-primary' style="width:12em" scope="public_profile,email" onclick="checkLoginState();"> Sign in with Facebook</a>
+        </div>
+        <!-- <a class="btn btn-block btn-social btn-facebook" scope="public_profile,email" onlogin="checkLoginState();">
             <i class="fa fa-facebook"></i> Sign in with Facebook
           </a>
-       <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>-->
         <div class="checkbox">
           <label>
