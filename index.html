@@ -126,7 +126,8 @@
     FB.api('/me', function(response) {
       var data = JSON.stringify(response);
       alert (data);
-      window.location="http://zukepage.github.io";
+      var user = data.name;
+      window.location="http://zukepage.github.io/index2.html?user="+user;
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
