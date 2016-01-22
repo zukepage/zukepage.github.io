@@ -1031,8 +1031,8 @@ function CalculateEligibility()
                     var monthlyRepayment = parseInt(loanEligibility1*(rate/(1-Math.pow((1+rate),-nums))));
                     var totalInterest = parseInt((monthlyRepayment*nums)-loanEligibility1);  
                         document.getElementById('pieLoanAmount').value=loanEligibility2;
-                        document.getElementById('pieInterestPay').value=monthlyRepayment;
-                        document.getElementById('pieProcessFee').value=totalInterest;
+                        document.getElementById('pieInterestPay').value=inrFormat(monthlyRepayment);
+                        document.getElementById('pieProcessFee').value=inrFormat(totalInterest);
                         document.getElementById('pieChart').innerHTML = "";
                         $( ".pieTip" ).remove();
                                                 $(function(){
