@@ -453,9 +453,14 @@ $(".car-hover").hover(
                 </select>
 
             </div>
-            <div class="form-group"><label for="interest-rate">Marginal Tax Rate</label>
+            <div class="form-group"><label for="interest-rate">Enter Income Slab</label>
                 <div class="input-group" >
-                    <input name="TaxSaving1$txt_tax" type="text" value="35.1" maxlength="5" id="TaxSaving1_txt_tax" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);"/><span class="input-group-addon" style="background-color: #F3F3F3;">&#37;<span/>
+                    <select name="reset" id="sel4" class="form-control">
+                        <option value="10.30">2.5 - 5.0 Lakh</option>
+                        <option value="20.60">5.0 - 10.0 Lakh</option>
+                        <option value="30.90" selected="true">Above 10 Lakh</option>
+                    </select>
+                    <!-- <input name="TaxSaving1$txt_tax" type="text" value="35.1" maxlength="5" id="TaxSaving1_txt_tax" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);"/> --><span class="input-group-addon" style="background-color: #F3F3F3;"><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/><span/>
                     </span>    
                 </div>
             </div>

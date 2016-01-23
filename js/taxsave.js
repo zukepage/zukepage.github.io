@@ -57,7 +57,7 @@ roi=parseFloat(document.getElementById("TaxSaving1_txt_roi").value,10)/1200;
 
 reset=parseFloat(document.getElementById("sel3").options[document.getElementById("sel3").selectedIndex].value,10);
 
-tax=parseFloat(document.getElementById("TaxSaving1_txt_tax").value,10)/100;
+tax=parseFloat(document.getElementById("sel4").options[document.getElementById("sel4").selectedIndex].value,10)/100;
 
 var emi=(amount*12*roi*(Math.pow( (roi*reset+1),tenure/reset))) /((Math.pow((1+roi*reset),tenure/reset) - 1)*12);
 
