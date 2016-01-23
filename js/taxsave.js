@@ -55,7 +55,7 @@ mon=parseFloat(document.getElementById("mon").options[document.getElementById("m
 
 roi=parseFloat(document.getElementById("TaxSaving1_txt_roi").value,10)/1200;
 
-reset=parseFloat(document.getElementById("sel3").options[document.getElementById("sel3").selectedIndex].value,10);
+reset=1;
 
 tax=parseFloat(document.getElementById("sel4").options[document.getElementById("sel4").selectedIndex].value,10)/100;
 
