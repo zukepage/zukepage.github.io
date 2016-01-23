@@ -25,7 +25,7 @@ var tesss="ttttt";
  CL_win_taxsave=window.open("",'ash1','scrollbars=yes,toolbar=no,menubar=no,resizable=yes,height=600,width=700','replace');
 
 	 CL_win_taxsave.document.open();
-	 CL_win_taxsave.document.write('<input type="button" name="B1" onClick="window.print(); value="Print">');
+	 CL_win_taxsave.document.write('<input type="button" name="B1" onClick="window.print();" value="Print">');
 
 	 CL_win_taxsave.focus();
 
