@@ -41,77 +41,9 @@
         <script type="text/javascript">var baseUrl = 'http://www.grpdiscount.com/';</script>
 
         <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script> 
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
 
-        <script>
-                    // This example displays an address form, using the autocomplete feature
-                    // of the Google Places API to help users fill in the information.
-
-                    var placeSearch, autocomplete;
-                    /*var componentForm = {
-                     street_number: 'short_name',
-                     route: 'long_name',
-                     locality: 'long_name',
-                     administrative_area_level_1: 'short_name',
-                     country: 'long_name',
-                     postal_code: 'short_name'
-                     };*/
-
-                            function initialize() {
-                            // Create the autocomplete object, restricting the search
-                            // to geographical location types.
-                            autocomplete = new google.maps.places.Autocomplete(
-                                    /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
-                            { types: ['geocode'] });
-                                    // When the user selects an address from the dropdown,
-                                    // populate the address fields in the form.
-                                    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                                    fillInAddress();
-                                    });
-                            }
-
-                    // [START region_fillform]
-                    function fillInAddress() {
-                    // Get the place details from the autocomplete object.
-                    var place = autocomplete.getPlace();
-                            /*
-                             for (var component in componentForm) {
-                             document.getElementById(component).value = '';
-                             document.getElementById(component).disabled = false;
-                             }
-                             
-                             // Get each component of the address from the place details
-                             // and fill the corresponding field on the form.
-                             for (var i = 0; i < place.address_components.length; i++) {
-                             var addressType = place.address_components[i].types[0];
-                             if (componentForm[addressType]) {
-                             var val = place.address_components[i][componentForm[addressType]];
-                             document.getElementById(addressType).value = val;
-                             }
-                             }*/
-                    }
-                    // [END region_fillform]
-
-                    // [START region_geolocation]
-                    // Bias the autocomplete object to the user's geographical location,
-                    // as supplied by the browser's 'navigator.geolocation' object.
-                    function geolocate() {
-                    if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                    var geolocation = new google.maps.LatLng(
-                            position.coords.latitude, position.coords.longitude);
-                            var circle = new google.maps.Circle({
-                            center: geolocation,
-                                    radius: position.coords.accuracy
-                            });
-                            autocomplete.setBounds(circle.getBounds());
-                    });
-                    }
-                    }
-                    // [END region_geolocation]
-
-        </script>
+       
 
    <style type="text/css">
         .preLoad-Image{height:0; overflow: hidden; font-size: 0; line-height: 0;}
@@ -120,11 +52,19 @@
             height: 200px;
         }
         .form-inline  .form-control {width:auto;}
+        #mycontent{
+                overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f3f3f3;
+    height: 100px;
+    border-top: 1px solid #e8e8e8;
+    -webkit-overflow-scrolling: touch;
+        }
     </style>
 <link rel="stylesheet" type="text/css" href="css/donut.css">
 
     </head>
-    <body onload="initialize()" class="page-template-fullwidth page-template-fullwidth-php" style="overflow-y: auto !important;">
+    <body class="page-template-fullwidth page-template-fullwidth-php" style="overflow-y: auto !important;">
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
@@ -276,12 +216,12 @@
                 </div>
 
                 <div class="modal-body">
-                    <center>
-                        <ul class="unstyled list-unstyled">
-                            <li><a href="calcfresh.html"><span class="icon-font-grey-size36"><i class="fa fa-calculator fa-4"></i></span><small><p>Loan Eligibility Calculator</p></small></a></li>
-                            <li><a href="hometax_save.html"><span class="icon-font-grey-size36"><i class="fa fa-calculator fa-4"></i></span><small><p>Tax Saving Calculator</p></small></a></li>    
+                     <center> 
+                     <ul class="unstyled list-unstyled">
+                        <li class="col-xs-6 col-sm-4"><a style="color:#000;" href="calcfresh.html"><span class="icon-font-grey-size36"><i class="fa fa-calculator fa-4"></i></span><small><p>Loan Eligibility Calculator</p></small></a></li>
+                        <li class="col-xs-6 col-sm-4"><a style="color:#000;" href="hometax_save.html"><span class="icon-font-grey-size36"><i class="fa fa-calculator fa-4"></i></span><small><p>Tax Saving Calculator</p></small></a></li>
                 
-                </ul>
+                    </ul>
             </center>
                     
                 </div>
@@ -429,88 +369,113 @@ $(".car-hover").hover(
 </body>
 
 </html>    
-<div id="content" class="mob-max" style=" padding-left:10%; height: auto;">
+<div id="mycontent" class="mob-max" style=" height: auto !important;">
      
         
     
-    <div class="row  border-bottom white-bg dashboard-header">
+    <div style="margin-bottom: 10px; margin-left: 10%;" class="row  border-bottom white-bg dashboard-header">
     <div class="col-sm-12 page-header" style="
-    border-bottom-color: black;"><h1 style="
+    border-bottom-color: black;
+    position: fixed;
+    z-index: 999;
+    background-color: whitesmoke;
+    width: 100%;
+    "><h1 style="
     margin-bottom: 0px;
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-right: 10px;
     font-family: inherit;
     display: block;
     color: white;
     padding: 10px;
     background-color: #0FAAA6;
-">Home Loan Eligibility Calculator</h1>
+">Tax Saving Calculator for Home Loan</h1>
             <div class="clearfix"></div>
         </div>
-    <div class="col-sm-6"  style="background: #fff;
-    border-radius: 10px;">
-        <form  style="margin:5px;" name="emiform" method="post"  action="">
+    <div class="col-sm-6"  style="
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 150px;
+    ">
+        <form  style="margin-bottom:5px; overflow-y: auto; padding-top:10px;" name="emiform" method="post"  action="">
         
  
-            <div class="form-group " ><label class="control-label" for="curTenure_val_mobile">Gross Income</label>
-                <input type="text" value="" placeholder="25000 per month"  class="form-control" name="grossincome" id="curGross_val_mobile" allowedCharSet="0-9" >
+            <div class="form-group " ><label class="control-label" for="TaxSaving1_txt_amount">Loan Amount(Rs.)</label>
+                <input type="text" name="TaxSaving1$txt_amount" value="" placeholder="100000" maxlength="8"   class="form-control" id="TaxSaving1_txt_amount" allowedCharSet="0-9" onChange="check_taxsave(this,&#39;int&#39;);" >
             </div>
             
        
-            <div class="form-group"><label for="curTenure_val_mobile">Loan Tenure</label>
-                <input type="text" value="" placeholder="12 Years"  class="form-control" name="tenure" id="curTenure_val_mobile" allowedCharSet="0-9" maxlength="3">
+            <div  class="form-group"><label>Started Repayment of Loan in : </label>
+                
+                    <select   name="mon" id="mon" class="form-control ">
+                        <option value="10" selected="true">Jan</option> 
+                        <option value="11">Feb</option>
+                        <option value="12">Mar</option>
+                        <option value="1">Apr</option> 
+                        <option value="2">May</option> 
+                        <option value="3">Jun</option> 
+                        <option value="4">Jul</option> 
+                        <option value="5">Aug</option> 
+                        <option value="6">Sep</option> 
+                        <option value="7">Oct</option>
+                        <option value="8">Nov</option> 
+                        <option value="9">Dec</option>
+                    </select>
+                    <select name="yr" id="yr" class="form-control" >
+                        <option value="1" selected="true">2014</option> 
+                        <option value="0">2015</option>
+                        <option value="0">2016</option>
+                        <option value="0">2017</option>
+                        <option value="0">2018</option>
+                        <option value="0">2019</option>
+                        <option value="0">2020</option>
+                        <option value="0">2021</option>
+                        <option value="0">2022</option>
+                        <option value="0">2023</option>
+                        <option value="0">2024</option>
+                    </select>
+                
             </div>
             
         
-            <div class="form-group"><label for="interest-rate">Interest Rate in %</label>
-                <input type="text" class="form-control interest-rate-value"   name="interestRate" placeholder="10.25%" id="interest-rate" allowedCharSet="0-9." maxlength="5" onfocus="this.placeholder = ''" onblur="this.placeholder = '10.25%'">
+            <div class="form-group"><label for="interest-rate">Loan tenure</label>
+                <input name="TaxSaving1$txt_tenure" type="text" value="20" maxlength="2" id="TaxSaving1_txt_tenure" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);" />
+                <!-- <input type="text" class="form-control interest-rate-value"   name="interestRate" placeholder="10.25%" id="interest-rate" allowedCharSet="0-9." maxlength="5" onfocus="this.placeholder = ''" onblur="this.placeholder = '10.25%'"> -->
             </div>
+            <div class="form-group"><label for="interest-rate">Rate of interest</label>
+                <input name="TaxSaving1$txt_roi" type="text" value="13" maxlength="5" id="TaxSaving1_txt_roi" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);" />
+            </div>
+            <div class="form-group"><label for="sel3">Rest</label>
+                <select name="reset" id="sel3" class="form-control">
+                    <option value="12">Yearly</option>
+                    <option value="1" selected="true">Monthly</option>
+                </select>
 
-    
-        <input type="button" onclick="return eValidate()" class="btn btn-success waves-effect w-md waves-light m-b-5 " value="Calculate" id="calculate" style=" margin:20px;padding:10px; float:right;    background-color: #0EAAA6;
-">
-    
+            </div>
+            <div class="form-group"><label for="interest-rate">Marginal Tax Rate</label>
+                <div class="input-group" >
+                    <input name="TaxSaving1$txt_tax" type="text" value="35.1" maxlength="5" id="TaxSaving1_txt_tax" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);"/><span class="input-group-addon" style="background-color: #01B2E7;">&#37;<span/>
+                    </span>    
+                </div>
+            </div>
+            <div class="form-group"> 
+                <input type="button" name="B1" onClick="if(validate_taxsave(this.form)) {display_taxsave('result');calculate_taxsave();}" type="button" value="Calculate" class="btn btn-default" style=" margin:20px;padding:10px; float:right; cursor:cursor; color:#fff; background-color: #0EAAA6;">
+            </div> 
     </form>
     </div>
 
-<div class="col-sm-6">
+<div class="col-sm-6" style="margin-top: 150px;">
 <div style="    background: #fff;
     border-radius: 10px; width:400px;
 ">
                     
-                            <center><h3 style="font-family: inherit;">Break-up of all total amount payable</h3>
-                            <!--<canvas id="myChart"></canvas>
-                            <svg id="svg" style="font-size:15px"></svg>-->
-                            <div id="pieChart" class="chart"></div>
+                            <center>
+                            <div class="text-md-center">
+                                <img src="images/taxsave.jpg" class="img-rounded img-fluid" alt="..." style="max-width:100%; height:auto;">
+                            </div>
                             </center>
-                        <form class="form-inline form-horizontal" style="margin:10px;" >
-                        <div class="pie-chart-details">
-                            <div class="detail-table-piechart" id="break-down-section">
-
-                            
-                          <div class="form-group" style="margin-bottom:10px;">
-                            <label class=" col-sm-6 control-label"  for="pieLoanAmount">Loan Amount Eligibility</label>
-                            <div class="input-group col-sm-6" >
-                              <span class="input-group-addon" style="background-color: #01B2E7;"><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/></span>
-                              <input type="text" class="form-control" id="pieLoanAmount"  disabled>
-                            </div>
-                          </div>
-                          <div class="form-group" style="margin-bottom:10px;">
-                            <label class="control-label col-sm-6" for="pieLoanAmount">Monthly Repayment</label>
-                            <div class="input-group col-sm-6">
-                              <span class="input-group-addon" style="background-color: #CFD3D6;"><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/></span>
-                              <input type="text" class="form-control" id="pieInterestPay" disabled>
-                            </div>
-                          </div>
-                          <div class="form-group"  style="margin-bottom:10px;">
-                            <label class="control-label col-sm-6"  for="pieLoanAmount">Total Interest Payable</label>
-                            <div class="input-group col-sm-6">
-                              <span class="input-group-addon" style="background-color: #726C79;"><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/></span>
-                              <input type="text" class="form-control" id="pieProcessFee"  disabled>
-                            </div>
-                          </div>
-                            </div>
-                            </div>
-                            </form>
+                        
                             
 </div>
 </div>
@@ -898,201 +863,14 @@ $(".car-hover").hover(
 <script type="text/javascript" src="http://www.grpdiscount.com/public/front/js/sort.js"></script>
 <script type="text/javascript" src="http://www.grpdiscount.com/public/front/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="http://www.grpdiscount.com/public/front/js/validation.js"></script>
-<script type="text/javascript" src="js/flat.js" ></script>
 <script type="text/javascript" src="js/newHeaderFooter.js" ></script>
 <script type="text/javascript" src="js/jq-plot.js" ></script> 
-<script src="js/donut.js"></script>
+<script type="text/javascript" src="js/taxsave.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js'></script>
 
 
 
-    <script type="text/javascript">
-function inrFormat(nStr) { // nStr is the input string
-     nStr += '';
-     x = nStr.split('.');
-     x1 = x[0];
-     x2 = x.length > 1 ? '.' + x[1] : '';
-     var rgx = /(\d+)(\d{3})/;
-     var z = 0;
-     var len = String(x1).length;
-     var num = parseInt((len/2)-1);
- 
-      while (rgx.test(x1))
-      {
-        if(z > 0)
-        {
-          x1 = x1.replace(rgx, '$1' + ',' + '$2');
-        }
-        else
-        {
-          x1 = x1.replace(rgx, '$1' + ',' + '$2');
-          rgx = /(\d+)(\d{2})/;
-        }
-        z++;
-        num--;
-        if(num == 0)
-        {
-          break;
-        }
-      }
-     return x1 + x2;
- }
-
-
-
-
-function eValidate()
-                          {
-                               
-                            
-                                var err='';
-                                
-                                if(document.emiform.grossincome.value=='')
-                                {
-                                    
-                                    err='Please Enter Monthly Income.';
-                                }
-                                
-                                if(document.emiform.tenure.value=='')
-                                {
-                                    err='Please Enter Tenure';
-                                }
-                                 
-                                if(document.emiform.interestRate.value=='')
-                                {
-                                    err='Please enter Interest Rate';
-                                }
-                                if(err!='')
-                                {
-                                    document.getElementById('errorResult2').innerHTML=err;
-
-                                    return false;
-                                }
-                                else
-                                {
-                                    CalculateEligibility();
-                                    
-                                
-                                    
-                                }
-                        
-                            }
-
-/**var programmingSkills = [
-    {
-        value: 33,
-        label: 'Loan Amount',
-        color: '#3399FF'
-    },
-    {
-        value: 33,
-        label: 'Monthly Insta.',
-        color: '#FFC575'
-    },
-    {
-        value: 34,
-        label: 'Total Interest',
-        color: '#99CC00'
-    },
-    
-];
-**/
-function CalculateEligibility()
-                        {
-                            
-                        var monthlyIncome=document.emiform.grossincome.value;
-                        var netMonthlyIncome;
-                        if(monthlyIncome<10000)
-                        {
-                            netMonthlyIncome=monthlyIncome*35/100;
-                                                    
-                        }
-                        else if(monthlyIncome>9999 && monthlyIncome<15000)
-                        {
-                            netMonthlyIncome=monthlyIncome*40/100;
-                        }
-                        else if (monthlyIncome>14999 && monthlyIncome<20000)
-                        {
-                            netMonthlyIncome=monthlyIncome*45/100;
-                        }
-                        else
-                        {
-                            netMonthlyIncome=monthlyIncome * 50/100;
-                        }
-                        var rate=document.emiform.interestRate.value/1200;
-                        var nums=document.emiform.tenure.value;
-                        var nums= nums*12;
-                        var emi=Math.ceil((100000)*(rate /(1-Math.pow((1+rate),-nums))));
-                        var loanEligibility=netMonthlyIncome/emi*100000;
-                    //  loanEligibility1=getRoundedAmount(loanEligibility);
-                    loanEligibility1=roundAccuracy(loanEligibility,-3);
-                    var loanEligibility2 = inrFormat(loanEligibility1);
-                    var monthlyRepayment = parseInt(loanEligibility1*(rate/(1-Math.pow((1+rate),-nums))));
-                    var totalInterest = parseInt((monthlyRepayment*nums)-loanEligibility1);  
-                        document.getElementById('pieLoanAmount').value=loanEligibility2;
-                        document.getElementById('pieInterestPay').value=inrFormat(monthlyRepayment);
-                        document.getElementById('pieProcessFee').value=inrFormat(totalInterest);
-                        document.getElementById('pieChart').innerHTML = "";
-                        $( ".pieTip" ).remove();
-                                                $(function(){
-                        $("#pieChart").drawPieChart([
-                            { title: "Loan Amount",         value : loanEligibility1,  color: "#02B3E7" },
-                            { title: "Monthly Repayment", value:  monthlyRepayment,   color: "#CFD3D6" },
-                            { title: "Total Interest",        value : totalInterest,   color: "#736D79" },
-                          ]);
-                        });
-                //      alert(loanEligibility1 + ', '+ loanEligibility);
-                        }
-
-
-
-function roundAccuracy(num, acc)
-                        {
-                        
-                            var fact=Math.pow(10,acc);
-                            return Math.round(num*fact)/fact;
-                        }
-                        
-function onlyNumeric(obj,type,len)
-                        {
-                           var reDigit;
-                         if(type==1)
-                          {
-                        //    if(len>0)
-                             reDigit="^\\d{1,"+len+"}$"; //not allowed digits more than len (limited no of digits allowed)
-                          //  else
-                            // reDigit=/^\d+$/; //allowed digits (unlimited no of digits allowed)
-                           }
-                           else if(type==2){
-                           // if(len>0)
-                             reDigit="^([0-9]+)([\.]?)([0-9]{0,"+len+"})$"; //not allowed dot again (float type upto len decimal place)
-                            //else
-                             //reDigit=/^([0-9]+)([\.]?)([0-9]*)$/; //not allowed dot again (float type upto unlimited decimal places)
-                           }
-                        
-                              if (obj.value.search(reDigit)==-1) //if match failed
-                                //obj.value='';
-                                obj.value=obj.value.substring(0,obj.value.length-1);
-                        }
-
-
-function clearAll2()
-{
-    for(i=0;i<document.forms['emiform'].elements.length;i++)
-    {
-        if(document.forms['emiform'].elements[i].type == 'text')
-        {
-            document.forms['emiform'].elements[i].value='';
-        }
-    }
-    document.getElementById('result2').innerHTML='';
-
-}
-
-
-
-</script>
-
+   
 
 <!--<script>
 
