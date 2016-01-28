@@ -42,6 +42,7 @@
 
         <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
+        <script src='js/Chart.min.js'></script>
 
        
 
@@ -60,6 +61,10 @@
     border-top: 1px solid #e8e8e8;
     -webkit-overflow-scrolling: touch;
         }
+
+}
+
+
     </style>
 <link rel="stylesheet" type="text/css" href="css/donut.css">
 
@@ -373,119 +378,141 @@ $(".car-hover").hover(
      
         
     
-    <div style="margin-bottom: 10px; margin-left: 10%;" class="row  border-bottom white-bg dashboard-header">
+    <div style="margin-bottom: 10px; margin-left: 7%; display:flex;" class="row  border-bottom white-bg dashboard-header">
     <div class="col-sm-12 page-header" style="
     border-bottom-color: black;
     position: fixed;
     z-index: 999;
-    background-color: whitesmoke;
+    background-color:whitesmoke;
     width: 100%;
-    "><h1 style="
+    "><h4 style="
     margin-bottom: 0px;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-right: 10px;
     font-family: inherit;
     display: block;
     color: white;
-    padding: 10px;
+    padding: 6px;
     background-color: #0FAAA6;
-">Tax Saving Calculator for Home Loan</h1>
+">Tax Saving Calculator for Home Loan</h4>
             <div class="clearfix"></div>
         </div>
-    <div class="col-sm-6"  style="
-    background: #fff;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    margin-top: 150px;
-    ">
-        <form  style="margin-bottom:5px; overflow-y: auto; padding-top:10px;" name="emiform" method="post"  action="">
-        
- 
-            <div class="form-group " ><label class="control-label" for="TaxSaving1_txt_amount">Loan Amount(Rs.)</label>
-                <input type="text" name="TaxSaving1$txt_amount" value="" placeholder="100000" maxlength="8"   class="form-control" id="TaxSaving1_txt_amount" allowedCharSet="0-9" onChange="check_taxsave(this,&#39;int&#39;);" >
-            </div>
-            
-       
-            <div  class="form-group"><label>Started Repayment of Loan in : </label>
                 
-                    <select   name="mon" id="mon" class="form-control ">
-                        <option value="10" selected="true">Jan</option> 
-                        <option value="11">Feb</option>
-                        <option value="12">Mar</option>
-                        <option value="1">Apr</option> 
-                        <option value="2">May</option> 
-                        <option value="3">Jun</option> 
-                        <option value="4">Jul</option> 
-                        <option value="5">Aug</option> 
-                        <option value="6">Sep</option> 
-                        <option value="7">Oct</option>
-                        <option value="8">Nov</option> 
-                        <option value="9">Dec</option>
-                    </select>
-                    <select name="yr" id="yr" class="form-control" >
-                        <option value="1" selected="true">2014</option> 
-                        <option value="0">2015</option>
-                        <option value="0">2016</option>
-                        <option value="0">2017</option>
-                        <option value="0">2018</option>
-                        <option value="0">2019</option>
-                        <option value="0">2020</option>
-                        <option value="0">2021</option>
-                        <option value="0">2022</option>
-                        <option value="0">2023</option>
-                        <option value="0">2024</option>
-                    </select>
-                
-            </div>
-            
-        
-            <div class="form-group"><label for="interest-rate">Loan tenure</label>
-                <input name="TaxSaving1$txt_tenure" type="text" value="20" maxlength="2" id="TaxSaving1_txt_tenure" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);" />
-                <!-- <input type="text" class="form-control interest-rate-value"   name="interestRate" placeholder="10.25%" id="interest-rate" allowedCharSet="0-9." maxlength="5" onfocus="this.placeholder = ''" onblur="this.placeholder = '10.25%'"> -->
-            </div>
-            <div class="form-group"><label for="interest-rate">Rate of interest</label>
-                <input name="TaxSaving1$txt_roi" type="text" value="13" maxlength="5" id="TaxSaving1_txt_roi" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);" />
-            </div>
-            <!-- <div class="form-group"><label for="sel3">Rest</label>
-                <select name="reset" id="sel3" class="form-control">
-                    <option value="12">Yearly</option>
-                    <option value="1" selected="true">Monthly</option>
-                </select> 
+        <div class="col-sm-12" style="margin-top: 120px;">
+            <div class="col-sm-6"  >
+                 <div style="  
+                    background: #fff;
+                    border-radius: 10px;
+                    width: auto;
+                    margin-right: 10px;
+                    padding:5px;">
+                            <p style="display:block; background-color:grey; color:#fff; padding:2px;">
+                                                        *Fill all the relevant details.
+                                                    </p>
+                                <form  style="margin-bottom:5px; overflow-y: auto; padding-top:10px;" name="emiform" method="post"  action="">
+                                
+                         
+                                    <div class="form-group " ><label class="control-label" for="TaxSaving1_txt_amount"><b>Loan Amount(Rs.)</b></label>
+                                        <input type="number"  min="1000000" max="20000000" step="500000" name="TaxSaving1$txt_amount" value="" placeholder="100000" maxlength="8"   class="form-control" id="TaxSaving1_txt_amount" allowedCharSet="0-9" onChange="check_taxsave(this,&#39;int&#39;);" >
+                                    </div>
+                                    
+                               
+                                    <div  class="form-group"><label><b>Started Repayment of Loan in :</b> </label>
+                                        
+                                            <select   name="mon" id="mon" class="form-control ">
+                                                <option value="10" >Jan</option> 
+                                                <option value="11">Feb</option>
+                                                <option value="12">Mar</option>
+                                                <option value="1" selected="true">Apr</option> 
+                                                <option value="2">May</option> 
+                                                <option value="3">Jun</option> 
+                                                <option value="4">Jul</option> 
+                                                <option value="5">Aug</option> 
+                                                <option value="6">Sep</option> 
+                                                <option value="7">Oct</option>
+                                                <option value="8">Nov</option> 
+                                                <option value="9">Dec</option>
+                                            </select>
+                                            <select name="yr" id="yr" class="form-control" >
+                                                <option value="1" selected="true">2014</option> 
+                                                <option value="0">2015</option>
+                                                <option value="0">2016</option>
+                                                <option value="0">2017</option>
+                                                <option value="0">2018</option>
+                                                <option value="0">2019</option>
+                                                <option value="0">2020</option>
+                                                <option value="0">2021</option>
+                                                <option value="0">2022</option>
+                                                <option value="0">2023</option>
+                                                <option value="0">2024</option>
+                                            </select>
+                                        
+                                    </div>
+                                    
+                                
+                                    <div class="form-group"><label for="interest-rate"><b>Loan tenure</b></label>
+                                        <input name="TaxSaving1$txt_tenure" type="number" value="20" maxlength="2" id="TaxSaving1_txt_tenure" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);" />
+                                        <!-- <input type="text" class="form-control interest-rate-value"   name="interestRate" placeholder="10.25%" id="interest-rate" allowedCharSet="0-9." maxlength="5" onfocus="this.placeholder = ''" onblur="this.placeholder = '10.25%'"> -->
+                                    </div>
+                                    <div class="form-group"><label for="interest-rate"><b>Rate of Interest</b></label>
+                                        <div class="input-group">
+                                        <input name="TaxSaving1$txt_roi" type="number" value="13" maxlength="5" id="TaxSaving1_txt_roi" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);" />
+                                        <span class="input-group-addon" style="background-color: #F3F3F3; font-weight: 900">%</span>
+                                    </div>
+                                    </div>
+                                    <!-- <div class="form-group"><label for="sel3">Rest</label>
+                                        <select name="reset" id="sel3" class="form-control">
+                                            <option value="12">Yearly</option>
+                                            <option value="1" selected="true">Monthly</option>
+                                        </select> 
 
-            </div>-->
-            <div class="form-group"><label for="interest-rate">Select Taxable Income Slab</label>
-                <div class="input-group" >
-                    <select name="reset" id="sel4" class="form-control">
-                        <option value="10.30">2.5 - 5.0 Lakh</option>
-                        <option value="20.60">5.0 - 10.0 Lakh</option>
-                        <option value="30.90" selected="true">Above 10 Lakh</option>
-                    </select>
-                    <!-- <input name="TaxSaving1$txt_tax" type="text" value="35.1" maxlength="5" id="TaxSaving1_txt_tax" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);"/> --><span class="input-group-addon" style="background-color: #F3F3F3;"><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/><span/>
-                    </span>    
-                </div>
-            </div>
-            <div class="form-group"> 
-                <input type="button" name="B1" onClick="if(validate_taxsave(this.form)) {display_taxsave('result');calculate_taxsave();}" type="button" value="Calculate" class="btn btn-default" style=" margin:20px;padding:10px; float:right; cursor:cursor; color:#fff; background-color: #0EAAA6;">
-            </div> 
-    </form>
-    </div>
+                                    </div>-->
+                                    <div class="form-group"><label for="interest-rate"><b>Your Gross Annual Income</b></label>
+                                        <div class="input-group" >
+                                            <input name="tai" type="number" min="50000" max="50000000" step="50000" value="1200000" maxlength="20" id="tai" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);" />
+                                            <!-- <input name="TaxSaving1$txt_tax" type="text" value="35.1" maxlength="5" id="TaxSaving1_txt_tax" class="form-control" onChange="check_taxsave(this,&#39;int&#39;);"/> --><span class="input-group-addon" style="background-color: #F3F3F3;"><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/>
+                                            </span>    
+                                        </div>
+                                    </div>
+                                    <div class="form-group"> 
+                                        <input type="button" name="B1" id="Btn1" onClick="if(validate_taxsave(this.form)) {display_taxsave('result');calculate_taxsave();}" type="button" value="Calculate" class="btn btn-default" style=" margin:20px;padding:10px; float:right; cursor:cursor; color:#fff; background-color: #0EAAA6;">
+                                    </div> 
+                                 </form>
+                                </div>
+                            </div>    
 
-<div class="col-sm-6" style="margin-top: 150px;">
-<div style="    background: #fff;
-    border-radius: 10px; width:400px;
-">
-                    
-                            <center>
-                            <div class="text-md-center">
-                                <img src="images/taxsave.jpg" class="img-rounded img-fluid" alt="..." style="max-width:100%; height:auto;">
-                            </div>
-                            </center>
-                        
+                        <div class="col-sm-6" >
+                            <div style="  
+                                background: #fff;
+                                border-radius: 10px;
+                                width: auto;
+                                margin-right: 10px;
+                                padding:5px;
+                                ">
                             
+                            <center>
+                            <!--<canvas id="myChart"></canvas>
+                            <svg id="svg" style="font-size:15px"></svg>-->
+
+                            <p style="display:block; background-color:grey; color:#fff; padding:2px;">
+                                <label class="radio-inline"><input type="radio" id ="sg" name="optradio"  value="1" >Total Saving Graph</label>
+                                <label class="radio-inline"><input type="radio" id ="st" name="optradio"  value="2">Yearly Saving Table</label>
+                            </p>
+                            </center>
+                                <canvas id="income" width="400" height="400" style="float:initial;"></canvas>
+                                <div id="info" style="display:none; margin-top:5px;">
+                                    <div style="background-color: gainsboro;"><h5 style="display: -webkit-inline-box;">Tax Paid Without Home Loan&nbsp;: &nbsp;</h5><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/><span id="twthl" ></span></div>
+                                    <div style="background-color: gainsboro;"><h5 style="display: -webkit-inline-box;">Tax Paid with Home Loan&nbsp;:&nbsp;</h5><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/><span id="twhl" ></span></div>
+                                    <div style="background-color: gainsboro;"><h5 style="display: -webkit-inline-box;">Total Tax Saved&nbsp;:&nbsp;</h5><img src="images/rupee-icon-black.png" class="lazy" alt="Rupee image"/><span id="tts"></span></div>
+                                </div>
+                                    
+                                <div id = "tb1" style="width:100% display:none;"></div>
+                            </div>
+                        </div>
+            </div>
+            </div>
 </div>
-</div>
-</div>
-</div>
+
 
 
      
@@ -874,9 +901,76 @@ $(".car-hover").hover(
 <script src='http://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js'></script>
 
 
+<script type="text/javascript">
+    
+                function demobar(){
+                    var randomColorGenerator = function () { 
+                            return '#' + (Math.random().toString(16) + '0000000').slice(2, 8); 
+                                };
+                    var barData = {
+                    labels : ["Tax Without Loan","Tax With Home Loan"],
+                    datasets : [
+                        {
+                            //fillColor : randomColorGenerator(),
+                            strokeColor : randomColorGenerator(),
+                            pointColor : randomColorGenerator(),
+                            pointStrokeColor : randomColorGenerator(),
+                            barValueSpacing : 10,
+                            highlightFill: randomColorGenerator(),
+                            highlightStroke: randomColorGenerator(),
+                            barStrokeWidth : 5,
+                            //Boolean - Whether barwidth should be fixed
+                            isFixedWidth:false,
+                            barDatasetSpacing : 5,
+                            //Number - Pixel width of the bar
+                            barWidth:20,
+                            data : [2000000,1700000]
+                        }
+                        
+                    ]
+                }
+    
+                var step  = 500000;
+                var max   = 2500000
+                var start = 0;
+                // get bar chart canvas
+                var income = document.getElementById("income").getContext("2d");
+                // draw bar chart
+                mychart=new Chart(income).Bar(barData,  {
+                scaleOverride: true,
+                scaleSteps: Math.ceil((max-start)/step),
+                scaleStepWidth: step,
+                scaleStartValue: start
+                });
+                mychart.datasets[0].bars[0].fillColor = "#1285C2";
+                mychart.datasets[0].bars[1].fillColor = "#EF701F";
+                mychart.update();
+            }
+            document.getElementById("sg").disabled = true;
+            document.getElementById("st").disabled = true;
+            $('input:radio[name="optradio"]').change(function() {
+            if ($(this).val() == '1') {
+                document.getElementById("info").style.display="block";
+                document.getElementById("tb1").style.display="none";
+                document.getElementById("income").style.display=" block";
+                } else {
+                    document.getElementById("info").style.display="none";
+                    document.getElementById("income").style.display="none";
+                    document.getElementById("tb1").style.display="block";
+            }
+            }); 
+            window.onload = demobar;
 
-   
+            
+</script>
 
+<script type="text/javascript">
+    //document.getElementById('Btn1').onclick = function() {
+      //  document.getElementById("sg").checked = true;
+//}​;​
+
+
+</script>
 <!--<script>
 
 var validNavigation = false;
