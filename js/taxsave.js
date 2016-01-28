@@ -478,7 +478,7 @@ function graph(arg1,arg2){
             }
 
             var step  = 500000;
-			var max   = taxwithloan+500000
+			var max   = taxwithloan+1000000
 			var start = 100000;
             // get bar chart canvas
             var income = document.getElementById("income").getContext("2d");
